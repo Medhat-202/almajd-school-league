@@ -1,135 +1,780 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دوري مدارس المجد الحديثة الخاصة</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title-tag">دوري مدارس المجد الحديثة الخاصة</title>
 <style>
 :root{--panel:#102437;--gold:#f3c969;--green:#27ae70;--text:#f4f7fb;--muted:#a9bac9;--line:#294257}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#081522,#0b2030 60%,#102b32);font-family:Tahoma,Arial,sans-serif;color:var(--text);line-height:1.65}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,#081522,#0b2030 60%,#102b32);font-family:Tahoma,Arial,sans-serif;color:var(--text);line-height:1.65}
 header{text-align:center;padding:25px 14px;background:radial-gradient(ellipse at top,#1b4052,transparent 72%)}
-h1{color:var(--gold);font-size:clamp(23px,5vw,35px);margin:4px 0}.author-title{font-size:clamp(18px,4vw,26px);font-weight:bold;margin:10px 0 4px}
-.muted,.notice{color:var(--muted);font-size:13px}.wrap{width:min(1000px,94%);margin:auto auto 35px}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.tab,button{border:0;border-radius:10px;padding:11px 14px;font:inherit;font-weight:bold;cursor:pointer}
-.tab{background:#173146;color:#fff;border:1px solid var(--line);padding:14px 5px}.tab.active{background:var(--gold);color:#172230}
+h1{color:var(--gold);font-size:clamp(23px,5vw,35px);margin:4px 0}
+.author-title{font-size:clamp(18px,4vw,26px);font-weight:bold;margin:10px 0 4px}
+.muted,.notice{color:var(--muted);font-size:13px}
+.wrap{width:min(1000px,94%);margin:auto auto 35px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.tab,button{border:0;border-radius:10px;padding:11px 14px;font:inherit;font-weight:bold;cursor:pointer}
+.tab{background:#173146;color:#fff;border:1px solid var(--line);padding:14px 5px}
+.tab.active{background:var(--gold);color:#172230}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px;margin:13px 0;box-shadow:0 10px 28px #0002}
-h2{font-size:20px;color:var(--gold);margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.stat{background:#142d42;border-radius:11px;padding:12px}.stat strong{display:block;font-size:25px;color:var(--gold)}
-.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:center;padding:9px 6px;border-bottom:1px solid var(--line)}th{color:var(--gold)}
-.match{display:grid;grid-template-columns:90px 1fr auto;gap:9px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
-.date{font-size:12px;color:var(--muted)}.teams{font-weight:bold}.score{font-size:18px;color:var(--gold);white-space:nowrap}
+h2{font-size:20px;color:var(--gold);margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.stat{background:#142d42;border-radius:11px;padding:12px}
+.stat strong{display:block;font-size:25px;color:var(--gold)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:center;padding:9px 6px;border-bottom:1px solid var(--line)}
+th{color:var(--gold)}
+.match{display:grid;grid-template-columns:100px 1fr auto;gap:9px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.date{font-size:12px;color:var(--muted)}
+.teams{font-weight:bold}
+.score-box{display:flex;flex-direction:column;gap:3px;align-items:center;font-size:16px;font-weight:bold;color:var(--gold)}
 input,select{font:inherit;width:100%;background:#091a28;color:#fff;border:1px solid #355168;border-radius:8px;padding:9px}
-label{display:block;color:var(--muted);font-size:13px;margin:8px 0 4px}.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.primary{background:var(--green);color:white}.secondary{background:#27465e;color:white}.danger{background:#9e343b;color:white}
-.btn-sm{padding:4px 8px;font-size:12px;border-radius:6px;margin:0 2px}.hidden{display:none!important}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:18px}.status{padding:9px 12px;border-radius:9px;background:#142d42;margin:10px 0;font-size:13px}
+label{display:block;color:var(--muted);font-size:13px;margin:8px 0 4px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.primary{background:var(--green);color:white}
+.secondary{background:#27465e;color:white}
+.danger{background:#9e343b;color:white}
+.btn-sm{padding:4px 8px;font-size:12px;border-radius:6px;margin:0 2px}
+.hidden{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:18px}
+.status{padding:9px 12px;border-radius:9px;background:#142d42;margin:10px 0;font-size:13px}
 hr{border-color:var(--line);margin:18px 0}
-@media(max-width:520px){.match{grid-template-columns:68px 1fr auto;gap:6px}.teams{font-size:13px}.card{padding:12px}.tabs{gap:5px}.tab{font-size:12px}}
-</style></head>
+@media(max-width:520px){.match{grid-template-columns:75px 1fr auto;gap:6px}.teams{font-size:13px}.card{padding:12px}.tabs{gap:5px}.tab{font-size:12px}}
+</style>
+</head>
 <body>
-<header><div style="font-size:40px">⚽ 🏆 ⚽</div><h1>دوري مدارس المجد الحديثة الخاصة</h1><div class="author-title">عمل كابتن مدحت محمد أبو النيل</div></header>
-<main class="wrap">
-<div class="tabs">
-<button id="tab-primary" class="tab active" onclick="setDiv('primary')">🏆 دوري الابتدائي</button>
-<button id="tab-prep" class="tab" onclick="setDiv('prep')">🏆 دوري الإعدادي</button>
-<button id="tab-super" class="tab" onclick="setDiv('super')">🥇 مباراة السوبر بطل المدرسة</button>
+
+<header>
+  <div style="font-size:32px">⚽ 🏆 ⚽</div>
+  <h1 id="main-heading">دوري مدارس المجد الحديثة الخاصة</h1>
+  <div class="author-title" id="author-heading">عمل كابتن مدحت محمد أبو النيل</div>
+</header>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab active" id="tab-primary" onclick="setDiv('primary')">🏆 دوري الابتدائي</button>
+    <button class="tab" id="tab-prep" onclick="setDiv('prep')">🏆 دوري الإعدادي</button>
+    <button class="tab" id="tab-super" onclick="setDiv('super')">🥇 مباراة السوبر</button>
+  </div>
+
+  <div id="connection-status" class="status">جاري الاتصال بقاعدة البيانات...</div>
+
+  <div class="grid">
+    <div class="stat"><span class="muted">عدد الفرق</span><strong id="team-count">0</strong></div>
+    <div class="stat"><span class="muted">عدد المباريات</span><strong id="match-count">0</strong></div>
+    <div class="stat"><span class="muted">المباريات المنتهية</span><strong id="played-count">0</strong></div>
+  </div>
+
+  <div class="card" id="standings-card">
+    <h2>📊 جدول الترتيب</h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>م</th>
+            <th style="text-align:right">الفريق</th>
+            <th>لعب</th>
+            <th>فاز</th>
+            <th>تعادل</th>
+            <th>خسر</th>
+            <th>له</th>
+            <th>عليه</th>
+            <th>الفرق</th>
+            <th>النقاط</th>
+          </tr>
+        </thead>
+        <tbody id="standings"></tbody>
+      </table>
+    </div>
+    <div class="muted" style="margin-top:8px;font-size:12px">الفوز 3 نقاط، التعادل نقطة لكل فريق.</div>
+  </div>
+
+  <div class="card">
+    <h2 id="fixtures-title">🗓️ جدول المباريات والنتائج</h2>
+    <div id="fixtures"></div>
+  </div>
+
+  <div class="card" id="scorers-card">
+    <h2>🥅 الهدافون</h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>م</th>
+            <th style="text-align:right">اسم اللاعب</th>
+            <th>الفريق</th>
+            <th>الأهداف</th>
+          </tr>
+        </thead>
+        <tbody id="scorers"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- لوحة المسؤول -->
+  <div class="card">
+    <h2>🔐 لوحة المسؤول</h2>
+    
+    <div id="login-box">
+      <p class="notice">سجّل الدخول بحساب المسؤول المعتمد في Firebase. التعديل متاح لحساب المسؤول المحدد فقط.</p>
+      <label>البريد الإلكتروني</label>
+      <input type="email" id="email" placeholder="name@example.com">
+      <label>كلمة مرور Firebase</label>
+      <input type="password" id="password" placeholder="••••••••">
+      <button class="primary" style="margin-top:12px" onclick="login()">دخول المسؤول</button>
+    </div>
+
+    <div id="admin" class="hidden">
+      <div class="status" style="background:#1b3b2b">✅ أهلاً بك يا كابتن مدحت. أنت مسجل الدخول كمسؤول.</div>
+      
+      <hr>
+      <h3>⚙️ تعديل عناوين الموقع الرئيسية</h3>
+      <div class="form">
+        <div>
+          <label>عنوان الدوري الرئيسي</label>
+          <input type="text" id="setting-title" value="دوري مدارس المجد الحديثة الخاصة">
+        </div>
+        <div>
+          <label>اسم المسؤول / العمل</label>
+          <input type="text" id="setting-author" value="عمل كابتن مدحت محمد أبو النيل">
+        </div>
+      </div>
+      <button class="primary" style="margin-top:10px" onclick="saveSiteSettings()">حفظ العناوين</button>
+
+      <hr>
+      <h3>تعديل نتيجة مباراة</h3>
+      <div class="form">
+        <div>
+          <label>المباراة</label>
+          <select id="match-select" onchange="fillScore()"></select>
+        </div>
+        <div>
+          <label>أهداف الفريق الأول</label>
+          <input type="number" id="score-a" min="0">
+        </div>
+        <div>
+          <label>أهداف الفريق الثاني</label>
+          <input type="number" id="score-b" min="0">
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button class="primary" onclick="saveScore()">حفظ النتيجة</button>
+        <button class="danger" onclick="clearScore()">مسح النتيجة</button>
+      </div>
+
+      <hr>
+      <h3>تحكم كامل في جدول الترتيب والفرق (إضافة، تعديل، حذف)</h3>
+      <p class="notice">يمكنك تعديل أي فريق أو نقاطه مباشرة أو إضافة فريق جديد للقسم الحالي:</p>
+      <div id="full-team-editor"></div>
+      <button class="secondary" style="margin-top:10px" onclick="addNewTeamPrompt()">➕ إضافة فريق جديد</button>
+      <button class="primary" style="margin-top:10px" onclick="saveCustomStandings()">حفظ تعديلات وترتيب الجدول</button>
+
+      <hr>
+      <h3>تعديل موعد وأسماء مباراة</h3>
+      <div class="form">
+        <div>
+          <label>المباراة المراد تعديلها</label>
+          <select id="edit-match-select" onchange="fillMatchEdit()"></select>
+        </div>
+        <div>
+          <label>التاريخ (YYYY-MM-DD أو نص مثل: يحدد لاحقاً)</label>
+          <input type="text" id="edit-date">
+        </div>
+        <div>
+          <label>اسم الفريق الأول</label>
+          <input type="text" id="edit-team-a">
+        </div>
+        <div>
+          <label>اسم الفريق الثاني</label>
+          <input type="text" id="edit-team-b">
+        </div>
+      </div>
+      <button class="primary" style="margin-top:10px" onclick="saveMatchEdit()">حفظ تعديل المباراة</button>
+
+      <hr>
+      <h3>إعداد مباراة السوبر</h3>
+      <div class="form">
+        <div>
+          <label>تاريخ مباراة السوبر</label>
+          <input type="text" id="super-date">
+        </div>
+        <div>
+          <label>الفريق الأول</label>
+          <input type="text" id="super-team-a">
+        </div>
+        <div>
+          <label>الفريق الثاني</label>
+          <input type="text" id="super-team-b">
+        </div>
+      </div>
+      <button class="primary" style="margin-top:10px" onclick="saveSuperSettings()">حفظ بيانات السوبر</button>
+
+      <hr>
+      <h3>إضافة هداف جديد</h3>
+      <div class="form">
+        <div>
+          <label>اسم اللاعب</label>
+          <input type="text" id="player-name">
+        </div>
+        <div>
+          <label>الفريق</label>
+          <select id="player-team"></select>
+        </div>
+        <div>
+          <label>عدد الأهداف الأولية</label>
+          <input type="number" id="player-goals" value="1" min="1">
+        </div>
+      </div>
+      <button class="primary" style="margin-top:10px" onclick="addScorer()">إضافة الهداف</button>
+
+      <h3 style="margin-top:15px">قائمة الهدافين (مع زر سريع +1 / -1):</h3>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>اللاعب</th>
+              <th>الفريق</th>
+              <th>الأهداف</th>
+              <th>إجراء سريع</th>
+            </tr>
+          </thead>
+          <tbody id="admin-scorers"></tbody>
+        </table>
+      </div>
+
+      <hr>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="secondary" onclick="exportJSON()">تنزيل نسخة احتياطية</button>
+        <button class="secondary" onclick="$('import-file').click()">استعادة نسخة JSON</button>
+        <input type="file" id="import-file" class="hidden" accept=".json" onchange="importJSON(event)">
+        <button class="danger" onclick="logout()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="connection-status" class="status">جاري الاتصال بقاعدة البيانات...</div>
-<section class="card"><div class="grid">
-<div class="stat">عدد الفرق<strong id="team-count">5</strong></div><div class="stat">عدد المباريات<strong id="match-count">10</strong></div><div class="stat">المباريات المنتهية<strong id="played-count">0</strong></div>
-</div></section>
-<section class="card" id="standings-card"><h2>📊 جدول الترتيب</h2><div class="scroll"><table><thead><tr><th>م</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>له</th><th>عليه</th><th>الفارق</th><th>النقاط</th></tr></thead><tbody id="standings"></tbody></table></div><p class="notice">الفوز 3 نقاط، التعادل نقطة لكل فريق.</p></section>
-<section class="card"><h2 id="fixtures-title">🗓️ جدول المباريات والنتائج</h2><div id="fixtures"></div></section>
-<section class="card" id="scorers-card"><h2>🥅 الهدافون</h2><div class="scroll"><table><thead><tr><th>م</th><th>اسم اللاعب</th><th>الفريق</th><th>الأهداف</th></tr></thead><tbody id="scorers"></tbody></table></div></section>
-<section class="card"><h2>🔐 لوحة المسؤول</h2>
-<div id="login-box"><p class="notice">سجّل الدخول بحساب المسؤول المعتمد في Firebase. التعديل متاح لحساب المسؤول المحدد فقط.</p><label>البريد الإلكتروني</label><input id="email" type="email" autocomplete="username"><label>كلمة مرور Firebase</label><input id="password" type="password" autocomplete="current-password"><button class="primary" style="margin-top:10px" onclick="login()">دخول المسؤول</button></div>
-<div id="admin" class="hidden">
-<h3>تعديل نتيجة مباراة</h3><div class="form"><div><label>المباراة</label><select id="match-select" onchange="fillScore()"></select></div><div><label>أهداف الفريق الأول</label><input id="score-a" type="number" min="0" step="1"></div><div><label>أهداف الفريق الثاني</label><input id="score-b" type="number" min="0" step="1"></div></div>
-<button class="primary" style="margin-top:10px" onclick="saveScore()">حفظ النتيجة</button> <button class="secondary" onclick="clearScore()">مسح النتيجة</button>
-<hr><h3>تعديل موعد وأسماء مباراة</h3><p class="notice">اختَر مباراة من القائمة، وعدّل التاريخ أو اسمَي الفريقين. التغييرات تُحفظ أونلاين.</p>
-<div class="form"><div><label>المباراة المراد تعديلها</label><select id="edit-match-select" onchange="fillMatchEdit()"></select></div><div><label>التاريخ (YYYY-MM-DD)</label><input id="edit-date" type="date"></div><div><label>اسم الفريق الأول</label><input id="edit-team-a"></div><div><label>اسم الفريق الثاني</label><input id="edit-team-b"></div></div>
-<button class="primary" style="margin-top:10px" onclick="saveMatchEdit()">حفظ تعديل المباراة</button>
-<hr><h3>تعديل أسماء الفرق في الدوري</h3><p class="notice">تعديل اسم الفريق من هنا يحدّث اسمه في المباريات والهدافين والترتيب.</p><div id="team-name-editor" class="form"></div><button class="primary" style="margin-top:10px" onclick="saveTeamNames()">حفظ أسماء الفرق</button>
-<hr><h3>إعداد مباراة السوبر</h3><p class="notice">يمكنك تعديل التاريخ واسمَي الفريقين في أي وقت. اكتب «يحدد لاحقًا» في التاريخ إذا لم يتحدد الموعد بعد.</p>
-<div class="form"><div><label>تاريخ مباراة السوبر</label><input id="super-date" placeholder="يحدد لاحقًا"></div><div><label>الفريق الأول</label><input id="super-team-a" placeholder="في انتظار بطل دوري ابتدائي"></div><div><label>الفريق الثاني</label><input id="super-team-b" placeholder="في انتظار بطل دوري إعدادي"></div></div><button class="primary" style="margin-top:10px" onclick="saveSuperSettings()">حفظ بيانات السوبر</button>
-<hr><h3>إضافة أو تعديل هداف</h3><div class="form"><div><label>اسم اللاعب</label><input id="player-name"></div><div><label>الفريق</label><select id="player-team"></select></div><div><label>إجمالي الأهداف</label><input id="player-goals" type="number" min="1" value="1"></div></div>
-<button class="primary" style="margin-top:10px" onclick="saveScorer()">حفظ الهداف</button><div style="margin-top:15px"><h4>قائمة الهدافين:</h4><div class="scroll"><table><thead><tr><th>اللاعب</th><th>الفريق</th><th>الأهداف</th><th>إجراء</th></tr></thead><tbody id="admin-scorers"></tbody></table></div></div>
-<hr><button class="secondary" onclick="backup()">تنزيل نسخة احتياطية</button><label>استعادة نسخة JSON</label><input type="file" accept="application/json,.json" onchange="restore(event)"><button class="danger" style="margin-top:10px" onclick="logout()">تسجيل الخروج</button>
-</div></section></main><footer>دوري مدارس المجد الحديثة الخاصة · بالتوفيق لجميع الفرق 🌟</footer>
+
+<footer>دوري مدارس المجد الحديثة الخاصة · بالتوفيق لجميع الفرق 🌟</footer>
+
 <script type="module">
-import{initializeApp}from"https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
-import{getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
-import{getFirestore,doc,getDoc,setDoc,onSnapshot}from"https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
-const firebaseConfig={apiKey:"AIzaSyB-Yi_NP8vGHM0mbae58XYqYNRh4Yj-pFg",authDomain:"almajd-school-league.firebaseapp.com",projectId:"almajd-school-league",storageBucket:"almajd-school-league.firebasestorage.app",messagingSenderId:"53054388478",appId:"1:53054388478:web:85766cf654496edc5f8daf"};
-const ADMIN_UID="mbRvNJ6QWwhqUGKbq3RtmkVQJgD3",app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),leagueRef=doc(db,"league","main");
-const teams={primary:['خامسة ثالث','سادسة تاني','سادسة أول','خامسة تاني','رابعة أول'],prep:['أولى أول إعدادي','أولى تالت إعدادي','تانية أول إعدادي','تانية تالت إعدادي','تالتة أول إعدادي','تالتة تالت إعدادي']};
-const fixtures={
-primary:[
-['2026-10-12','خامسة ثالث','سادسة تاني'],['2026-10-13','سادسة أول','خامسة تاني'],['2026-10-14','رابعة أول','خامسة ثالث'],['2026-10-15','خامسة تاني','رابعة أول'],['2026-10-18','سادسة تاني','سادسة أول'],['2026-10-19','خامسة ثالث','خامسة تاني'],['2026-10-20','سادسة أول','رابعة أول'],['2026-10-21','سادسة تاني','خامسة تاني'],['2026-10-22','خامسة ثالث','سادسة أول'],['2026-10-25','رابعة أول','سادسة تاني']],
-prep:[
-['2026-10-12',0,1],['2026-10-13',2,3],['2026-10-14',4,5],['2026-10-15',0,2],['2026-10-18',1,3],['2026-10-19',4,0],['2026-10-20',2,5],['2026-10-21',1,4],['2026-10-22',3,5],['2026-10-25',1,2],['2026-10-26',3,4],['2026-10-27',1,5],['2026-10-28',0,3],['2026-10-29',2,4],['2026-11-01',5,0]]
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB-Yi_NP8vGHM0mbae58XYqYNRh4Yj-pFg",
+  authDomain: "almajd-school-league.firebaseapp.com",
+  projectId: "almajd-school-league",
+  storageBucket: "almajd-school-league.firebasestorage.app",
+  messagingSenderId: "53054388478",
+  appId: "1:53054388478:web:85766cf654496edc5f8daf"
 };
-function fresh(){
- let o={};for(let d of ['primary','prep'])o[d]={teams:[...teams[d]],matches:fixtures[d].map((x,i)=>({id:d[0]+i,date:x[0],a:typeof x[1]==='number'?teams[d][x[1]]:x[1],b:typeof x[2]==='number'?teams[d][x[2]]:x[2],sa:null,sb:null})),scorers:[]};
- o.super={teams:['في انتظار بطل دوري ابتدائي','في انتظار بطل دوري إعدادي'],matches:[{id:'super-final',date:'يحدد لاحقًا',a:'في انتظار بطل دوري ابتدائي',b:'في انتظار بطل دوري إعدادي',sa:null,sb:null}],scorers:[]};return o
-}
-let data=fresh(),division='primary',isAdmin=false;
-const $=id=>document.getElementById(id),setStatus=s=>$('connection-status').textContent=s;
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function dateText(s){if(!s||!/^\d{4}-\d{2}-\d{2}$/.test(s))return s||'يحدد لاحقًا';let[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString('ar-EG',{weekday:'long',day:'numeric',month:'numeric'})}
-function normalize(x){
- let b=fresh();if(!x)return b;
- for(let d of ['primary','prep']){
-  if(x[d]){
-   if(Array.isArray(x[d].teams)&&x[d].teams.length)b[d].teams=x[d].teams.map(String);
-   const oldMatches=Array.isArray(x[d].matches)?x[d].matches:[];
-   // Keep the updated default fixture list, matching previous results by date and pair of teams.
-   b[d].matches=b[d].matches.map(m=>{const old=oldMatches.find(o=>o&&o.date===m.date&&((o.a===m.a&&o.b===m.b)||(o.a===m.b&&o.b===m.a)));if(!old)return m;const same=old.a===m.a;return {...m,sa:Number.isInteger(old.sa)&&old.sa>=0?(same?old.sa:old.sb):null,sb:Number.isInteger(old.sb)&&old.sb>=0?(same?old.sb:old.sa):null}});
-   b[d].scorers=Array.isArray(x[d].scorers)?x[d].scorers.filter(s=>s&&typeof s.name==='string'&&Number.isInteger(s.goals)&&s.goals>0).map(s=>({...s,team:String(s.team)})):[];
-   // First-time migration: use the corrected fixture schedule while preserving matching old scores.
-   // After schemaVersion 2 is saved, preserve administrator-edited dates and team names.
-   if(Number(x.schemaVersion)>=2 && Array.isArray(x[d].matches)){
-    b[d].matches=x[d].matches.filter(m=>m&&typeof m.id==='string').map(m=>({id:m.id,date:String(m.date||''),a:String(m.a||''),b:String(m.b||''),sa:Number.isInteger(m.sa)&&m.sa>=0?m.sa:null,sb:Number.isInteger(m.sb)&&m.sb>=0?m.sb:null}));
-   }
+
+const ADMIN_UID = "mbRvNJ6QWwhqUGKbq3RtmkVQJgD3";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const leagueRef = doc(db, "league", "main");
+
+const teams = {
+  primary: ['خامسة ثالث', 'سادسة تاني', 'سادسة أول', 'خامسة تاني', 'رابعة أول'],
+  prep: ['تالتة تالت إعدادي', 'أولى تالت إعدادي', 'تانية تالت إعدادي', 'تالتة أول إعدادي', 'تانية أول إعدادي', 'أولى أول إعدادي']
+};
+
+const fixtures = {
+  primary: [
+    ['2026-10-12', 'خامسة ثالث', 'سادسة تاني'],
+    ['2026-10-13', 'سادسة أول', 'خامسة تاني'],
+    ['2026-10-14', 'رابعة أول', 'خامسة ثالث'],
+    ['2026-10-15', 'خامسة تاني', 'رابعة أول'],
+    ['2026-10-18', 'سادسة تاني', 'سادسة أول'],
+    ['2026-10-19', 'خامسة ثالث', 'خامسة تاني'],
+    ['2026-10-20', 'سادسة أول', 'رابعة أول'],
+    ['2026-10-21', 'سادسة تاني', 'خامسة تاني'],
+    ['2026-10-22', 'خامسة ثالث', 'سادسة أول'],
+    ['2026-10-25', 'رابعة أول', 'سادسة تاني']
+  ],
+  prep: [
+    ['2026-10-12', 0, 1],
+    ['2026-10-13', 2, 3],
+    ['2026-10-14', 4, 5],
+    ['2026-10-15', 0, 2],
+    ['2026-10-18', 1, 3],
+    ['2026-10-19', 4, 0],
+    ['2026-10-20', 2, 5],
+    ['2026-10-21', 1, 4],
+    ['2026-10-22', 3, 5],
+    ['2026-10-25', 1, 2],
+    ['2026-10-26', 3, 4],
+    ['2026-10-27', 1, 5],
+    ['2026-10-28', 0, 3],
+    ['2026-10-29', 2, 4],
+    ['2026-11-01', 5, 0]
+  ]
+};
+
+// الترتيب الأولي لدوري الإعدادي كما طلبته تماماً
+const initialPrepStandings = [
+  { team: 'تالتة تالت إعدادي', p: 4, w: 3, d: 1, l: 0, gf: 12, ga: 3, pts: 10 },
+  { team: 'أولى تالت إعدادي', p: 5, w: 2, d: 2, l: 1, gf: 3, ga: 5, pts: 8 },
+  { team: 'تانية تالت إعدادي', p: 4, w: 2, d: 1, l: 1, gf: 8, ga: 4, pts: 7 },
+  { team: 'تالتة أول إعدادي', p: 4, w: 1, d: 2, l: 1, gf: 1, ga: 3, pts: 5 },
+  { team: 'تانية أول إعدادي', p: 5, w: 0, d: 3, l: 2, gf: 1, ga: 4, pts: 3 },
+  { team: 'أولى أول إعدادي', p: 4, w: 0, d: 1, l: 3, gf: 0, ga: 6, pts: 1 }
+];
+
+function fresh() {
+  let o = {
+    siteTitle: 'دوري مدارس المجد الحديثة الخاصة',
+    siteAuthor: 'عمل كابتن مدحت محمد أبو النيل'
+  };
+  for (let d of ['primary', 'prep']) {
+    o[d] = {
+      teams: [...teams[d]],
+      matches: fixtures[d].map((x, i) => ({
+        id: d[0] + i,
+        date: x[0],
+        a: typeof x[1] === 'number' ? teams[d][x[1]] : x[1],
+        b: typeof x[2] === 'number' ? teams[d][x[2]] : x[2],
+        sa: null,
+        sb: null
+      })),
+      scorers: [],
+      customStandings: d === 'prep' ? [...initialPrepStandings] : null
+    };
   }
- }
- if(x.super&&Array.isArray(x.super.matches)&&x.super.matches[0]){let m=x.super.matches[0];b.super.matches=[{id:'super-final',date:String(m.date||'يحدد لاحقًا'),a:String(m.a||'في انتظار بطل دوري ابتدائي'),b:String(m.b||'في انتظار بطل دوري إعدادي'),sa:Number.isInteger(m.sa)&&m.sa>=0?m.sa:null,sb:Number.isInteger(m.sb)&&m.sb>=0?m.sb:null}];b.super.teams=[b.super.matches[0].a,b.super.matches[0].b]}
- return b
+  o.super = {
+    teams: ['في انتظار بطل دوري ابتدائي', 'في انتظار بطل دوري إعدادي'],
+    matches: [{ id: 'super-final', date: 'يحدد لاحقًا', a: 'في انتظار بطل دوري ابتدائي', b: 'في انتظار بطل دوري إعدادي', sa: null, sb: null }],
+    scorers: []
+  };
+  return o;
 }
-function stats(){let o={};data[division].teams.forEach(t=>o[t]={team:t,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0});for(let m of data[division].matches){if(m.sa===null||m.sb===null||!o[m.a]||!o[m.b])continue;let a=o[m.a],b=o[m.b];a.p++;b.p++;a.gf+=m.sa;a.ga+=m.sb;b.gf+=m.sb;b.ga+=m.sa;if(m.sa>m.sb){a.w++;b.l++;a.pts+=3}else if(m.sa<m.sb){b.w++;a.l++;b.pts+=3}else{a.d++;b.d++;a.pts++;b.pts++}}return Object.values(o).sort((a,b)=>b.pts-a.pts||((b.gf-b.ga)-(a.gf-a.ga))||b.gf-a.gf)}
-function render(){
- let d=data[division];$('team-count').textContent=division==='super'?2:d.teams.length;$('match-count').textContent=d.matches.length;$('played-count').textContent=d.matches.filter(m=>m.sa!==null&&m.sb!==null).length;
- $('standings-card').classList.toggle('hidden',division==='super');$('scorers-card').classList.toggle('hidden',division==='super');
- if(division!=='super')$('standings').innerHTML=stats().map((s,i)=>`<tr><td>${i+1}</td><td style="text-align:right;font-weight:bold">${esc(s.team)}</td><td>${s.p}</td><td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td>${s.gf}</td><td>${s.ga}</td><td>${s.gf-s.ga}</td><td><b>${s.pts}</b></td></tr>`).join('');
- $('fixtures-title').textContent=division==='super'?'🥇 مباراة السوبر بطل المدرسة':'🗓️ جدول المباريات والنتائج';
- $('fixtures').innerHTML=d.matches.map((m,i)=>`<div class="match"><div><div class="date">${esc(dateText(m.date))}</div><div class="date">${division==='super'?'مباراة السوبر':'مباراة '+(i+1)}</div></div><div class="teams">${esc(m.a)}<br><span class="muted">ضد</span><br>${esc(m.b)}</div><div class="score">${m.sa===null?'—':m.sa+' : '+m.sb}</div></div>`).join('');
- let ss=[...d.scorers].sort((a,b)=>b.goals-a.goals);if(division!=='super')$('scorers').innerHTML=ss.length?ss.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.name)}</td><td>${esc(s.team)}</td><td>${s.goals}</td></tr>`).join(''):'<tr><td colspan="4" class="muted">لم تتم إضافة هدافين حتى الآن</td></tr>';
- const allMatches=[...data.primary.matches.map(m=>({...m,div:'primary'})),...data.prep.matches.map(m=>({...m,div:'prep'})),...data.super.matches.map(m=>({...m,div:'super'}))];
- let sel=$('match-select'),old=sel.value;sel.innerHTML=allMatches.map(m=>`<option value="${m.div}|${m.id}">${m.div==='primary'?'ابتدائي':m.div==='prep'?'إعدادي':'السوبر'} · ${esc(dateText(m.date))} · ${esc(m.a)} × ${esc(m.b)}</option>`).join('');if([...sel.options].some(o=>o.value===old))sel.value=old;
- let es=$('edit-match-select'),eo=es.value;es.innerHTML=allMatches.map(m=>`<option value="${m.div}|${m.id}">${m.div==='primary'?'ابتدائي':m.div==='prep'?'إعدادي':'السوبر'} · ${esc(dateText(m.date))} · ${esc(m.a)} × ${esc(m.b)}</option>`).join('');if([...es.options].some(o=>o.value===eo))es.value=eo;
- $('player-team').innerHTML=(division==='super'?[]:d.teams).map(t=>`<option>${esc(t)}</option>`).join('');renderTeamEditor();fillScore();fillMatchEdit();renderAdminScorers();fillSuperSettings()
+
+let data = fresh(), division = 'primary', isAdmin = false;
+const $ = id => document.getElementById(id);
+const setStatus = s => $('connection-status').textContent = s;
+
+function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) }
+
+function dateText(s) {
+  if (!s || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return s || 'يحدد لاحقًا';
+  let [y, m, d] = s.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString('ar-EG', { weekday: 'long', day: 'numeric', month: 'numeric' });
 }
-function renderTeamEditor(){let d=data[division];$('team-name-editor').innerHTML=division==='super'?'<p class="notice">أسماء فريقي السوبر تُعدّل من قسم إعداد مباراة السوبر.</p>':d.teams.map((t,i)=>`<div><label>اسم الفريق ${i+1}</label><input data-team-index="${i}" value="${esc(t)}"></div>`).join('')}
-function parseSelected(id){let [div,...rest]=($(id).value||'').split('|');return {div,id:rest.join('|')}}
-function getMatchFromSelect(id){let s=parseSelected(id);return {division:s.div,match:data[s.div]?.matches.find(m=>m.id===s.id)}}
-window.setDiv=d=>{division=d;for(let x of ['primary','prep','super'])$('tab-'+x).classList.toggle('active',x===d);render()};
-window.fillScore=()=>{let x=getMatchFromSelect('match-select'),m=x.match;$('score-a').value=m&&m.sa!==null?m.sa:'';$('score-b').value=m&&m.sb!==null?m.sb:''};
-window.fillMatchEdit=()=>{let x=getMatchFromSelect('edit-match-select'),m=x.match;if(!m)return;$('edit-date').value=/^\d{4}-\d{2}-\d{2}$/.test(m.date)?m.date:'';$('edit-date').placeholder=/^\d{4}-\d{2}-\d{2}$/.test(m.date)?'':'اكتب التاريخ أو اتركه فارغًا';$('edit-team-a').value=m.a;$('edit-team-b').value=m.b};
-function fillSuperSettings(){let m=data.super.matches[0];$('super-date').value=m.date;$('super-team-a').value=m.a;$('super-team-b').value=m.b}
-function renderAdminScorers(){let s=data[division].scorers;$('admin-scorers').innerHTML=s.length?s.map((x,i)=>`<tr><td>${esc(x.name)}</td><td>${esc(x.team)}</td><td>${x.goals}</td><td><button class="primary btn-sm" onclick="editScorer(${i})">تعديل</button><button class="danger btn-sm" onclick="deleteScorer(${i})">حذف</button></td></tr>`).join(''):'<tr><td colspan="4" class="muted">لا يوجد هدافون</td></tr>'}
-async function saveRemote(){if(!isAdmin||auth.currentUser?.uid!==ADMIN_UID)throw Error('غير مصرح');data.schemaVersion=2;await setDoc(leagueRef,data);setStatus('✅ تم الحفظ على الإنترنت وستظهر التحديثات للزوار.')}
-window.login=async()=>{let e=$('email').value.trim(),p=$('password').value;if(!e||!p)return alert('اكتب البريد الإلكتروني وكلمة المرور');try{let c=await signInWithEmailAndPassword(auth,e,p);if(c.user.uid!==ADMIN_UID){await signOut(auth);return alert('هذا الحساب غير مصرح له بالتعديل')}isAdmin=true;$('login-box').classList.add('hidden');$('admin').classList.remove('hidden');$('password').value='';let snap=await getDoc(leagueRef);if(snap.exists())data=normalize(snap.data());else await setDoc(leagueRef,data);render();setStatus('✅ تم تسجيل الدخول والاتصال بقاعدة البيانات.')}catch(err){console.error(err);alert('فشل الدخول أو الاتصال. راجع البريد وكلمة المرور وقواعد Firestore.')}}
-window.logout=async()=>{isAdmin=false;await signOut(auth);$('login-box').classList.remove('hidden');$('admin').classList.add('hidden');setStatus('أنت تتصفح الدوري كزائر.')};
-window.saveScore=async()=>{if(!isAdmin)return;let x=getMatchFromSelect('match-select'),m=x.match,a=$('score-a').value,b=$('score-b').value;if(!m||a===''||b===''||!Number.isInteger(+a)||!Number.isInteger(+b)||+a<0||+b<0)return alert('اكتب نتيجتين صحيحتين');let old=[m.sa,m.sb];m.sa=+a;m.sb=+b;try{await saveRemote();render();alert('تم حفظ النتيجة على الإنترنت')}catch(e){m.sa=old[0];m.sb=old[1];render();alert('تعذر الحفظ. تحقق من الاتصال وقواعد Firestore.')}}
-window.clearScore=async()=>{if(!isAdmin)return;let x=getMatchFromSelect('match-select'),m=x.match;if(m&&confirm('مسح نتيجة المباراة؟')){let old=[m.sa,m.sb];m.sa=m.sb=null;try{await saveRemote();render()}catch(e){m.sa=old[0];m.sb=old[1];render();alert('تعذر الحفظ')}}};
-window.saveMatchEdit=async()=>{if(!isAdmin)return;let x=getMatchFromSelect('edit-match-select'),m=x.match;if(!m)return;let date=$('edit-date').value|| (x.div==='super'?'يحدد لاحقًا':'');let a=$('edit-team-a').value.trim(),b=$('edit-team-b').value.trim();if(!date||!a||!b)return alert('اكتب التاريخ واسمَي الفريقين. للسوبر يمكنك استخدام «يحدد لاحقًا» كتاريخ.');let old={date:m.date,a:m.a,b:m.b};m.date=date;m.a=a;m.b=b;if(x.div==='super')data.super.teams=[a,b];try{await saveRemote();render();alert('تم حفظ تعديل المباراة')}catch(e){Object.assign(m,old);render();alert('تعذر الحفظ')}}
-window.saveTeamNames=async()=>{if(!isAdmin)return;if(division==='super')return alert('عدّل أسماء فريقي السوبر من قسم إعداد مباراة السوبر');let inputs=[...$('team-name-editor').querySelectorAll('input[data-team-index]')],names=inputs.map(i=>i.value.trim());if(names.some(n=>!n))return alert('لا تترك اسم فريق فارغًا');if(new Set(names).size!==names.length)return alert('كل فريق لازم يكون له اسم مختلف');let old=structuredClone(data[division]);let rename={};old.teams.forEach((t,i)=>rename[t]=names[i]);data[division].teams=names;data[division].matches.forEach(m=>{m.a=rename[m.a]||m.a;m.b=rename[m.b]||m.b});data[division].scorers.forEach(s=>{s.team=rename[s.team]||s.team});try{await saveRemote();render();alert('تم حفظ أسماء الفرق وتحديثها في الجدول')}catch(e){data[division]=old;render();alert('تعذر الحفظ')}}
-window.saveSuperSettings=async()=>{if(!isAdmin)return;let date=$('super-date').value.trim()||'يحدد لاحقًا',a=$('super-team-a').value.trim()||'في انتظار بطل دوري ابتدائي',b=$('super-team-b').value.trim()||'في انتظار بطل دوري إعدادي';let m=data.super.matches[0],old={...m};Object.assign(m,{date,a,b});data.super.teams=[a,b];try{await saveRemote();render();alert('تم حفظ بيانات مباراة السوبر')}catch(e){Object.assign(m,old);data.super.teams=[old.a,old.b];render();alert('تعذر الحفظ')}}
-window.saveScorer=async()=>{if(!isAdmin||division==='super')return;let name=$('player-name').value.trim(),team=$('player-team').value,goals=+$('player-goals').value;if(!name||!Number.isInteger(goals)||goals<1)return alert('اكتب الاسم وعدد أهداف صحيح');let old=structuredClone(data[division].scorers),s=data[division].scorers.find(x=>x.name===name&&x.team===team);if(s)s.goals=goals;else data[division].scorers.push({name,team,goals});try{await saveRemote();render();$('player-name').value='';alert('تم حفظ الهداف')}catch(e){data[division].scorers=old;render();alert('تعذر الحفظ')}};
-window.editScorer=i=>{let s=data[division].scorers[i];if(s){$('player-name').value=s.name;$('player-team').value=s.team;$('player-goals').value=s.goals}};
-window.deleteScorer=async i=>{if(!isAdmin||!confirm('حذف الهداف؟'))return;let old=data[division].scorers.splice(i,1);try{await saveRemote();render()}catch(e){data[division].scorers.splice(i,0,...old);render();alert('تعذر الحذف')}};
-window.backup=()=>{if(!isAdmin)return;let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='almajd-league-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
-window.restore=ev=>{if(!isAdmin)return;let f=ev.target.files[0];if(!f)return;let r=new FileReader();r.onload=async()=>{try{data=normalize(JSON.parse(r.result));await saveRemote();render();alert('تم استرجاع النسخة وحفظها على الإنترنت')}catch(e){alert('النسخة غير صالحة أو تعذر الحفظ')}ev.target.value=''};r.readAsText(f)};
-onSnapshot(leagueRef,s=>{if(s.exists()){data=normalize(s.data());render();setStatus('✅ متصل بقاعدة البيانات؛ التحديثات تظهر تلقائيًا.')}else setStatus('قاعدة البيانات جاهزة. سجّل دخول المسؤول لإنشاء بيانات الدوري لأول مرة.')},e=>{console.error(e);setStatus('تعذر قراءة قاعدة البيانات. تأكد من نشر قواعد Firestore.')});
-onAuthStateChanged(auth,u=>{if(u&&u.uid===ADMIN_UID){isAdmin=true;$('login-box').classList.add('hidden');$('admin').classList.remove('hidden')}else{isAdmin=false;$('login-box').classList.remove('hidden');$('admin').classList.add('hidden')}});
-render();
-</script></body></html>
+
+function normalize(x) {
+  let b = fresh();
+  if (!x) return b;
+  b.siteTitle = x.siteTitle || 'دوري مدارس المجد الحديثة الخاصة';
+  b.siteAuthor = x.siteAuthor || 'عمل كابتن مدحت محمد أبو النيل';
+
+  for (let d of ['primary', 'prep']) {
+    if (x[d]) {
+      if (Array.isArray(x[d].teams) && x[d].teams.length) b[d].teams = x[d].teams.map(String);
+      if (Array.isArray(x[d].matches)) {
+        b[d].matches = x[d].matches.map(m => ({
+          id: String(m.id || ''),
+          date: String(m.date || ''),
+          a: String(m.a || ''),
+          b: String(m.b || ''),
+          sa: Number.isInteger(m.sa) && m.sa >= 0 ? m.sa : null,
+          sb: Number.isInteger(m.sb) && m.sb >= 0 ? m.sb : null
+        }));
+      }
+      b[d].scorers = Array.isArray(x[d].scorers) ? x[d].scorers.filter(s => s && typeof s.name === 'string').map(s => ({ ...s, team: String(s.team), goals: Number(s.goals) || 0 })) : [];
+      if (x[d].customStandings) b[d].customStandings = x[d].customStandings;
+    }
+  }
+  if (x.super && Array.isArray(x.super.matches) && x.super.matches[0]) {
+    let m = x.super.matches[0];
+    b.super.matches = [{ id: 'super-final', date: String(m.date || 'يحدد لاحقًا'), a: String(m.a || 'في انتظار بطل دوري ابتدائي'), b: String(m.b || 'في انتظار بطل دوري إعدادي'), sa: Number.isInteger(m.sa) && m.sa >= 0 ? m.sa : null, sb: Number.isInteger(m.sb) && m.sb >= 0 ? m.sb : null }];
+    b.super.teams = [b.super.matches[0].a, b.super.matches[0].b];
+  }
+  return b;
+}
+
+function stats() {
+  let d = data[division];
+  let o = {};
+  d.teams.forEach(t => o[t] = { team: t, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 });
+  
+  for (let m of d.matches) {
+    if (m.sa === null || m.sb === null || !o[m.a] || !o[m.b]) continue;
+    let a = o[m.a], b = o[m.b];
+    a.p++; b.p++; a.gf += m.sa; a.ga += m.sb; b.gf += m.sb; b.ga += m.sa;
+    if (m.sa > m.sb) { a.w++; b.l++; a.pts += 3; }
+    else if (m.sa < m.sb) { b.w++; a.l++; b.pts += 3; }
+    else { a.d++; b.d++; a.pts++; b.pts++; }
+  }
+
+  let list = Object.values(o);
+  
+  if (d.customStandings && Array.isArray(d.customStandings)) {
+    list = d.customStandings.map(c => {
+      let auto = list.find(x => x.team === c.team) || { team: c.team, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 };
+      return {
+        team: c.team,
+        p: c.p !== undefined ? c.p : auto.p,
+        w: c.w !== undefined ? c.w : auto.w,
+        d: c.d !== undefined ? c.d : auto.d,
+        l: c.l !== undefined ? c.l : auto.l,
+        gf: c.gf !== undefined ? c.gf : auto.gf,
+        ga: c.ga !== undefined ? c.ga : auto.ga,
+        pts: c.pts !== undefined ? c.pts : auto.pts
+      };
+    });
+  }
+
+  return list.sort((a, b) => b.pts - a.pts || ((b.gf - b.ga) - (a.gf - a.ga)) || b.gf - a.gf);
+}
+
+function render() {
+  $('main-heading').textContent = data.siteTitle;
+  $('author-heading').textContent = data.siteAuthor;
+  $('page-title-tag').textContent = data.siteTitle;
+  if($('setting-title')) $('setting-title').value = data.siteTitle;
+  if($('setting-author')) $('setting-author').value = data.siteAuthor;
+
+  let d = data[division];
+  $('team-count').textContent = division === 'super' ? 2 : d.teams.length;
+  $('match-count').textContent = d.matches.length;
+  $('played-count').textContent = d.matches.filter(m => m.sa !== null && m.sb !== null).length;
+  
+  $('standings-card').classList.toggle('hidden', division === 'super');
+  $('scorers-card').classList.toggle('hidden', division === 'super');
+  
+  if (division !== 'super') {
+    $('standings').innerHTML = stats().map((s, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td style="text-align:right;font-weight:bold">${esc(s.team)}</td>
+        <td>${s.p}</td>
+        <td>${s.w}</td>
+        <td>${s.d}</td>
+        <td>${s.l}</td>
+        <td>${s.gf}</td>
+        <td>${s.ga}</td>
+        <td>${s.gf - s.ga}</td>
+        <td><b>${s.pts}</b></td>
+      </tr>
+    `).join('');
+  }
+
+  $('fixtures-title').textContent = division === 'super' ? '🥇 مباراة السوبر بطل المدرسة' : '🗓️ جدول المباريات والنتائج';
+  
+  $('fixtures').innerHTML = d.matches.map((m, i) => `
+    <div class="match">
+      <div>
+        <div class="date">${esc(dateText(m.date))}</div>
+        <div class="date">${division === 'super' ? 'مباراة السوبر' : 'مباراة ' + (i + 1)}</div>
+      </div>
+      <div class="teams">${esc(m.a)}<br><span class="muted">ضد</span><br>${esc(m.b)}</div>
+      <div class="score-box">
+        ${m.sa === null ? '<span class="muted">—</span>' : `<span>${m.a}: ${m.sa}</span><span>${m.b}: ${m.sb}</span>`}
+      </div>
+    </div>
+  `).join('');
+
+  let ss = [...d.scorers].sort((a, b) => b.goals - a.goals);
+  if (division !== 'super') {
+    $('scorers').innerHTML = ss.length ? ss.map((s, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${esc(s.name)}</td>
+        <td>${esc(s.team)}</td>
+        <td>${s.goals}</td>
+      </tr>
+    `).join('') : '<tr><td colspan="4" class="muted">لم تتم إضافة هدافين حتى الآن</td></tr>';
+  }
+
+  const allMatches = [...data.primary.matches.map(m => ({ ...m, div: 'primary' })), ...data.prep.matches.map(m => ({ ...m, div: 'prep' })), ...data.super.matches.map(m => ({ ...m, div: 'super' }))];
+  
+  let sel = $('match-select'), old = sel.value;
+  sel.innerHTML = allMatches.map(m => `<option value="${m.div}|${m.id}">${m.div === 'primary' ? 'ابتدائي' : m.div === 'prep' ? 'إعدادي' : 'السوبر'} · ${esc(dateText(m.date))} · ${esc(m.a)} × ${esc(m.b)}</option>`).join('');
+  if ([...sel.options].some(o => o.value === old)) sel.value = old;
+
+  let es = $('edit-match-select'), eo = es.value;
+  es.innerHTML = allMatches.map(m => `<option value="${m.div}|${m.id}">${m.div === 'primary' ? 'ابتدائي' : m.div === 'prep' ? 'إعدادي' : 'السوبر'} · ${esc(dateText(m.date))} · ${esc(m.a)} × ${esc(m.b)}</option>`).join('');
+  if ([...es.options].some(o => o.value === eo)) es.value = eo;
+
+  $('player-team').innerHTML = (division === 'super' ? [] : d.teams).map(t => `<option>${esc(t)}</option>`).join('');
+  
+  renderFullTeamEditor();
+  fillScore();
+  fillMatchEdit();
+  renderAdminScorers();
+  fillSuperSettings();
+}
+
+function renderFullTeamEditor() {
+  if (division === 'super') {
+    $('full-team-editor').innerHTML = '<p class="notice">فريقا السوبر تُدار من قسم إعداد مباراة السوبر.</p>';
+    return;
+  }
+  let currentStats = stats();
+  $('full-team-editor').innerHTML = currentStats.map((s, i) => `
+    <div style="background:#091a28;padding:10px;border-radius:8px;margin-bottom:8px;border:1px solid var(--line)" data-row-index="${i}">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+        <label style="flex:1">اسم الفريق: <input type="text" class="ce-team" value="${esc(s.team)}"></label>
+        <button class="danger btn-sm" style="margin-top:18px" onclick="removeTeam('${esc(s.team)}')">حذف الفريق</button>
+      </div>
+      <div class="form" style="grid-template-columns:repeat(7, 1fr)">
+        <div><label>لعب</label><input type="number" class="ce-p" value="${s.p}"></div>
+        <div><label>فاز</label><input type="number" class="ce-w" value="${s.w}"></div>
+        <div><label>تعادل</label><input type="number" class="ce-d" value="${s.d}"></div>
+        <div><label>خسر</label><input type="number" class="ce-l" value="${s.l}"></div>
+        <div><label>له</label><input type="number" class="ce-gf" value="${s.gf}"></div>
+        <div><label>عليه</label><input type="number" class="ce-ga" value="${s.ga}"></div>
+        <div><label>نقاط</label><input type="number" class="ce-pts" value="${s.pts}"></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+window.saveSiteSettings = async function() {
+  data.siteTitle = $('setting-title').value.trim() || 'دوري مدارس المجد الحديثة الخاصة';
+  data.siteAuthor = $('setting-author').value.trim() || 'عمل كابتن مدحت محمد أبو النيل';
+  await syncDB();
+  render();
+  alert('✅ تم حفظ عناوين الموقع بنجاح');
+};
+
+window.setDiv = d => { division = d; document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); $('tab-' + d).classList.add('active'); render(); };
+
+function fillScore() {
+  let v = $('match-select').value;
+  if (!v) return;
+  let [div, id] = v.split('|');
+  let m = data[div].matches.find(x => x.id === id);
+  if (m) {
+    $('score-a').value = m.sa !== null ? m.sa : '';
+    $('score-b').value = m.sb !== null ? m.sb : '';
+  }
+}
+
+window.saveScore = async function() {
+  let v = $('match-select').value;
+  if (!v) return;
+  let [div, id] = v.split('|');
+  let m = data[div].matches.find(x => x.id === id);
+  if (m) {
+    let sa = $('score-a').value, sb = $('score-b').value;
+    m.sa = sa === '' ? null : Number(sa);
+    m.sb = sb === '' ? null : Number(sb);
+    await syncDB();
+    render();
+    alert('✅ تم حفظ النتيجة');
+  }
+};
+
+window.clearScore = async function() {
+  let v = $('match-select').value;
+  if (!v) return;
+  let [div, id] = v.split('|');
+  let m = data[div].matches.find(x => x.id === id);
+  if (m) {
+    m.sa = null; m.sb = null;
+    await syncDB();
+    render();
+    alert('🗑️ تم مسح النتيجة');
+  }
+};
+
+function fillMatchEdit() {
+  let v = $('edit-match-select').value;
+  if (!v) return;
+  let [div, id] = v.split('|');
+  let m = data[div].matches.find(x => x.id === id);
+  if (m) {
+    $('edit-date').value = m.date;
+    $('edit-team-a').value = m.a;
+    $('edit-team-b').value = m.b;
+  }
+}
+
+window.saveMatchEdit = async function() {
+  let v = $('edit-match-select').value;
+  if (!v) return;
+  let [div, id] = v.split('|');
+  let m = data[div].matches.find(x => x.id === id);
+  if (m) {
+    m.date = $('edit-date').value.trim();
+    m.a = $('edit-team-a').value.trim();
+    m.b = $('edit-team-b').value.trim();
+    await syncDB();
+    render();
+    alert('✅ تم تعديل بيانات المباراة بنجاح');
+  }
+};
+
+window.saveCustomStandings = async function() {
+  let rows = document.querySelectorAll('#full-team-editor > div');
+  let custom = [];
+  rows.forEach(r => {
+    custom.push({
+      team: r.querySelector('.ce-team').value.trim(),
+      p: Number(r.querySelector('.ce-p').value),
+      w: Number(r.querySelector('.ce-w').value),
+      d: Number(r.querySelector('.ce-d').value),
+      l: Number(r.querySelector('.ce-l').value),
+      gf: Number(r.querySelector('.ce-gf').value),
+      ga: Number(r.querySelector('.ce-ga').value),
+      pts: Number(r.querySelector('.ce-pts').value)
+    });
+  });
+  data[division].customStandings = custom;
+  data[division].teams = custom.map(x => x.team);
+  await syncDB();
+  render();
+  alert('✅ تم حفظ وتثبيت جدول الترتيب والفرق بنجاح');
+};
+
+window.addNewTeamPrompt = async function() {
+  let name = prompt('أدخل اسم الفريق الجديد:');
+  if (!name) return;
+  name = name.trim();
+  if (!data[division].teams.includes(name)) {
+    data[division].teams.push(name);
+    if (!data[division].customStandings) data[division].customStandings = stats();
+    data[division].customStandings.push({ team: name, p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0 });
+    await syncDB();
+    render();
+  }
+};
+
+window.removeTeam = async function(teamName) {
+  if (!confirm(`هل أنت متأكد من حذف فريق "${teamName}"؟`)) return;
+  let d = data[division];
+  d.teams = d.teams.filter(t => t !== teamName);
+  if (d.customStandings) {
+    d.customStandings = d.customStandings.filter(s => s.team !== teamName);
+  }
+  await syncDB();
+  render();
+};
+
+function fillSuperSettings() {
+  let m = data.super.matches[0];
+  $('super-date').value = m.date;
+  $('super-team-a').value = m.a;
+  $('super-team-b').value = m.b;
+}
+
+window.saveSuperSettings = async function() {
+  let m = data.super.matches[0];
+  m.date = $('super-date').value.trim();
+  m.a = $('super-team-a').value.trim();
+  m.b = $('super-team-b').value.trim();
+  data.super.teams = [m.a, m.b];
+  await syncDB();
+  render();
+  alert('✅ تم حفظ بيانات مباراة السوبر بنجاح');
+};
+
+window.addScorer = async function() {
+  let name = $('player-name').value.trim();
+  let team = $('player-team').value;
+  let goals = Number($('player-goals').value) || 1;
+  if (!name) return alert('أدخل اسم اللاعب');
+  let d = data[division];
+  let found = d.scorers.find(s => s.name === name && s.team === team);
+  if (found) found.goals += goals;
+  else d.scorers.push({ name, team, goals });
+  $('player-name').value = '';
+  await syncDB();
+  render();
+  alert('✅ تم إضافة الهداف');
+};
+
+function renderAdminScorers() {
+  let d = data[division];
+  if (division === 'super') {
+    $('admin-scorers').innerHTML = '<tr><td colspan="4" class="muted">لا يوجد هدافون للسوبر</td></tr>';
+    return;
+  }
+  $('admin-scorers').innerHTML = d.scorers.length ? d.scorers.map((s, i) => `
+    <tr>
+      <td>${esc(s.name)}</td>
+      <td>${esc(s.team)}</td>
+      <td><b>${s.goals}</b></td>
+      <td>
+        <button class="primary btn-sm" onclick="adjustScorer(${i}, 1)">+1</button>
+        <button class="danger btn-sm" onclick="adjustScorer(${i}, -1)">-1</button>
+      </td>
+    </tr>
+  `).join('') : '<tr><td colspan="4" class="muted">لا يوجد هدافون مضافون</td></tr>';
+}
+
+window.adjustScorer = async function(idx, delta) {
+  let d = data[division];
+  d.scorers[idx].goals += delta;
+  if (d.scorers[idx].goals <= 0) d.scorers.splice(idx, 1);
+  await syncDB();
+  render();
+};
+
+window.exportJSON = function() {
+  let blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  let url = URL.createObjectURL(blob);
+  let a = document.createElement('a');
+  a.href = url; a.download = 'almajd-league-backup.json';
+  a.click();
+};
+
+window.importJSON = async function(event) {
+  let file = event.target.files[0];
+  if (!file) return;
+  let reader = new FileReader();
+  reader.onload = async function(e) {
+    try {
+      data = normalize(JSON.parse(e.target.result));
+      await syncDB();
+      render();
+      alert('✅ تمت الاستعادة بنجاح');
+    } catch(err) {
+      alert('❌ الملف غير صالح');
+    }
+  };
+  reader.readAsText(file);
+};
+
+async function syncDB() {
+  try {
+    await setDoc(leagueRef, data);
+  } catch(err) {
+    console.error(err);
+    setStatus('❌ خطأ في الحفظ بقاعدة البيانات');
+  }
+}
+
+onAuthStateChanged(auth, user => {
+  isAdmin = user && user.uid === ADMIN_UID;
+  $('login-box').classList.toggle('hidden', isAdmin);
+  $('admin').classList.toggle('hidden', !isAdmin);
+});
+
+window.login = function() {
+  signInWithEmailAndPassword(auth, $('email').value.trim(), $('password').value)
+    .catch(err => alert('❌ فشل الدخول: ' + err.message));
+};
+
+window.logout = function() { signOut(auth); };
+
+onSnapshot(leagueRef, snap => {
+  if (snap.exists()) {
+    data = normalize(snap.data());
+    setStatus('🟢 متصل بقاعدة البيانات بنجاح (محدث فوراً)');
+  } else {
+    data = fresh();
+    setDoc(leagueRef, data);
+    setStatus('🟢 تم إنشـاء قاعدة البيانات بنجاح');
+  }
+  render();
+}, err => {
+  setStatus('🔴 خطأ في الاتصال بالشبكة أو قاعدة البيانات');
+});
+</script>
+</body>
+</html>
